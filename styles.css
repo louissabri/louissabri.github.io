@@ -93,10 +93,6 @@ header {
     cursor: pointer;
 }
 
-.portfolio-item:hover {
-    transform: scale(1.05);
-}
-
 .portfolio-item .overlay {
     position: absolute;
     top: 0;
