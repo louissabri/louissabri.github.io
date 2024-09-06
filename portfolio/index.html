@@ -3,12 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Louis Sabri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    
-    <!-- Your content goes here -->
-    
+    <div class="container">
+        <header>
+            <a href="index.html">Louis Sabri</a>
+            <nav>
+                <a href="https://www.linkedin.com/in/louissabri/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/louissabri" target="_blank">Github</a>
+                <a href="email.html">Email</a>
+            </nav>
+        </header>
+
+        <section class="intro">
+            <div>
+                <h1>Hi, I'm Louis</h1>
+                <p>I'm a computational design student with a passion for blending creativity and technology. I love working with parametric design, robotics, and finding smart solutions for the future of urban spaces.</p>
+            </div>
+            <div>
+                <img src="https://placehold.co/600x400" alt="Louis Sabri">
+            </div>
+        </section>
+        <section class="portfolio">
+            <h2>My Portfolio</h2>
+            <p>Explore a selection of my architecture projects, showcasing my design skills and creative approach.</p>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item"><img src="https://placehold.co/450x200" alt="Image"></div>
+                <div class="portfolio-item"><img src="https://placehold.co/450x200" alt="Image"></div>
+                <div class="portfolio-item"><img src="https://placehold.co/450x200" alt="Image"></div>
+            </div>
+        </section>
+        <section class="contact">
+            <h2>Get in Touch</h2>
+            <p>I'd love to hear from you! Feel free to reach out with any questions or inquiries about my work.</p>
+            <form action="https://formspree.io/f/mkgweqgl" method="POST">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            
+        </section>
+        <footer class="footer">
+            <div>
+                <p>&copy; 2024 Louis Sabri. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
