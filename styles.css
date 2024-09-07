@@ -9,12 +9,17 @@ body {
     align-items: center;
     flex-direction: column;
     text-align: left;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .container {
     width: 95%;
     padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* General Text Styles */
@@ -60,18 +65,62 @@ header {
     padding: 20px 0;
 }
 
+/* Responsive styles for header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Intro Section */
 .intro {
     display: flex;
-    min-height: 80vh;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.intro div {
+    flex: 1;
+    max-width: 500px;
+}
+
+.intro img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro div {
+        max-width: 100%;
+    }
+
+    .intro img {
+        max-width: 80%;
+    }
 }
 
 /* Portfolio Section */
-
 .portfolio {
     background-color: #3d3d43;
-    width: 100vw;
+    width: 100%;
     padding: 80px 0;
-    margin-left: calc(-50vw + 50%);
     text-align: center;
 }
 
@@ -79,11 +128,13 @@ header {
     max-width: 95%;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .portfolio-item {
     width: 30%;
+    margin-bottom: 20px;
     height: 200px;
     background-color: #222;
     border-radius: 8px;
@@ -113,30 +164,11 @@ header {
     opacity: 1;
 }
 
-.portfolio-item .overlay p {
-    font-size: 14px;
-    margin-top: 10px;
-    color: #bbb;
-}
-
 /* Contact Section */
 .contact {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.contact h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.contact p {
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 18px;
-    color: #ccc;
-    margin-bottom: 30px;
 }
 
 .contact form {
@@ -180,33 +212,40 @@ header {
     background-color: #ccc;
 }
 
-.email {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    text-align: center;
-}
-
-.email a {
-    font-size: 24px;
-    color: #ccc;
-    text-decoration: none;
-}
-
-
 /* Footer Section */
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px;
     background-color: #111;
     border-top: 1px solid #333;
     color: #ccc;
     font-family: 'Roboto', Arial, sans-serif;
+    text-align: center;
 }
 
-.footer p {
-    font-size: 14px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .portfolio-gallery {
+        flex-direction: column;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
+
+    .email {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact form {
+        width: 90%;
+    }
 }
