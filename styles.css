@@ -212,6 +212,16 @@ header {
     background-color: #ccc;
 }
 
+
+.email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 92vh;
+}
+
+
 /* Footer Section */
 .footer {
     display: flex;
