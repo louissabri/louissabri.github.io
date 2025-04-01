@@ -80,53 +80,45 @@ function initializeProjectFilter() {
     
     if (!filterContainer || projectCards.length === 0) return;
     
-    // Step 1: Collect all unique categories
-    const categories = new Map();
-    categories.set('all', 'All'); // Always include "All" category
+    // Clear existing filter buttons
+    filterContainer.innerHTML = '';
     
+    // Use the centralized CATEGORIES object to create filter buttons
+    // Start with 'All' category
+    createFilterButton('all', CATEGORIES['all'].displayName, true);
+    
+    // Create a Set to track which categories are actually in use
+    const usedCategories = new Set();
+    
+    // Find all categories in use from project cards
     projectCards.forEach(card => {
-        const categoriesString = card.getAttribute('data-category');
-        if (categoriesString) {
+        if (card.hasAttribute('data-category')) {
+            const categoriesString = card.getAttribute('data-category');
             const categoryList = categoriesString.split(' ');
+            
             categoryList.forEach(category => {
-                if (category && !categories.has(category)) {
-                    // Format category for display (capitalize first letter, replace hyphens with spaces)
-                    const displayText = category
-                        .split('-')
-                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                        .join(' ');
-                    
-                    // Add full display name for common categories
-                    if (category === 'parametric') {
-                        categories.set(category, 'Parametric Design');
-                    } else if (category === 'robotic') {
-                        categories.set(category, 'Robotic Fabrication'); 
-                    } else if (category === 'web') {
-                        categories.set(category, 'Web Development');
-                    } else {
-                        categories.set(category, displayText);
-                    }
+                if (category && category !== 'all') {
+                    usedCategories.add(category);
                 }
             });
         }
     });
     
-    // Step 2: Create and append filter buttons
-    categories.forEach((displayName, category) => {
-        const button = document.createElement('button');
-        button.className = 'filter-btn';
-        button.setAttribute('data-filter', category);
-        button.textContent = displayName;
-        
-        // Set "All" as active by default
-        if (category === 'all') {
-            button.classList.add('active');
+    // Create buttons for each used category
+    usedCategories.forEach(category => {
+        if (CATEGORIES[category]) {
+            createFilterButton(category, CATEGORIES[category].displayName, false);
+        } else {
+            // Fallback for any categories not in the central config
+            const displayName = category
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+            createFilterButton(category, displayName, false);
         }
-        
-        filterContainer.appendChild(button);
     });
     
-    // Step 3: Add event listeners to the buttons
+    // Add event listeners to the buttons
     const filterButtons = document.querySelectorAll('.filter-btn');
     
     filterButtons.forEach(button => {
@@ -142,11 +134,7 @@ function initializeProjectFilter() {
             // Show all projects if filter is 'all'
             if (filter === 'all') {
                 projectCards.forEach(card => {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
+                    showProjectCard(card);
                 });
                 return;
             }
@@ -156,24 +144,40 @@ function initializeProjectFilter() {
                 const categoryList = card.getAttribute('data-category').split(' ');
                 
                 if (categoryList.includes(filter)) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
+                    showProjectCard(card);
                 } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                    hideProjectCard(card);
                 }
             });
         });
     });
+
+    // Helper function to create filter buttons
+    function createFilterButton(category, displayName, isActive) {
+        const button = document.createElement('button');
+        button.className = 'filter-btn';
+        if (isActive) button.classList.add('active');
+        button.setAttribute('data-filter', category);
+        button.textContent = displayName;
+        filterContainer.appendChild(button);
+    }
     
-    // Initialize animation for the filter buttons
-    initializeScrollAnimation();
+    // Helper functions for showing/hiding project cards with animation
+    function showProjectCard(card) {
+        card.style.display = 'block';
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 50);
+    }
+    
+    function hideProjectCard(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            card.style.display = 'none';
+        }, 300);
+    }
 }
 
 // Create a simple lightbox for project images

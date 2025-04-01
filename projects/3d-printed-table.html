@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body data-categories="parametric furniture">
+<body data-project-id="3d-printed-table">
     <header>
         <!-- Header content will be added by components.js -->
     </header>
 
     <div class="project-header">
-        <img class="project-header-img" src="../img/table-1.png" alt="3D Printed Table">
+        <img class="project-header-img" src="../img/table-2.jpg" alt="3D Printed Table">
         <div class="project-header-content">
             <h1>3D Printed Table</h1>
-            <p>A modern, parametric table design 3D printed with recycled plastics.</p>
+            <p>A parametrically designed table created using growth algorithms and large-scale robotic 3D printing.</p>
         </div>
     </div>
 
@@ -27,62 +27,69 @@
         <div class="container">
             <h2>Project Overview</h2>
             <p>
-                This project explores the potential of 3D printing with recycled materials for furniture design. The table features a parametrically designed structure that optimizes material usage while maintaining structural integrity. By leveraging computational design tools and digital fabrication techniques, this project demonstrates how sustainable design can be achieved without sacrificing aesthetics or functionality.
+                This project involved parametric design in Grasshopper and growth algorithms using Parakeet to create a unique furniture piece. The primary focus was learning how to implement large-scale 3D printing on the KUKA KR70 robot, generating print instructions and slicing objects using Grasshopper's computational tools.
+            </p>
+            <p>
+                The table combines advanced digital design with sustainable materials, utilizing recycled PETG plastic as the primary printing medium. This approach allowed for material optimization while exploring the aesthetic possibilities of algorithmic design in functional furniture.
             </p>
             
             <h3 class="mt-4">Technologies Used</h3>
             <ul>
-                <li>Grasshopper for Rhino (Parametric Modeling)</li>
-                <li>Karamba3D (Structural Analysis)</li>
-                <li>Large-format 3D printing with recycled PETG</li>
-                <li>Custom material testing and simulation</li>
+                <li>Grasshopper for Rhino (Parametric Modeling and Print Path Generation)</li>
+                <li>Parakeet (Growth Algorithms)</li>
+                <li>KUKA KR70 Robotic Arm</li>
+                <li>Massive Dimension Extruder</li>
+                <li>Recycled PETG Material</li>
             </ul>
             
             <h3 class="mt-4">Design Process</h3>
             <p>
-                The design began with a series of parametric explorations in Grasshopper, focusing on optimizing the structure based on load-bearing requirements. I developed custom algorithms to generate lattice structures that would minimize material usage while maintaining the necessary strength.
+                The design process began with parametric explorations in Grasshopper, focusing on implementing growth algorithms through Parakeet. These algorithms allowed me to generate organic, efficient structures that optimized material usage while maintaining the necessary structural integrity for a functional table.
             </p>
             <p>
-                Using Karamba3D, I conducted structural analyses to refine the design and identify areas that needed reinforcement. This iterative process allowed me to achieve a balance between material efficiency and structural performance.
+                After finalizing the design, I developed custom slicing procedures in Grasshopper to generate the robotic print paths. This step was crucial for translating the complex parametric geometry into executable instructions for the KUKA KR70 robot.
             </p>
             
-            <h3 class="mt-4">Fabrication</h3>
+            <h3 class="mt-4">Fabrication Challenges</h3>
             <p>
-                The table was fabricated using a large-format 3D printer with a custom extruder designed for recycled PETG plastic. I developed a specific printing strategy to ensure proper layer adhesion and minimize warping during the printing process.
+                One of the major challenges in this project was optimizing the print process to avoid warping and material adhesion issues. Since the printing took place in an unregulated, open-air environment, environmental conditions significantly affected the printing quality. Through systematic trial and error, I documented various environmental factors and their effects on the print, allowing me to develop strategies to maintain consistent quality.
             </p>
             <p>
-                The printing process took approximately 20 hours, with careful monitoring to ensure quality throughout. After printing, the parts were assembled and finished with an eco-friendly sealant to protect the surface.
+                The printing utilized recycled PETG with a Massive Dimension extruder mounted on the KUKA KR70 robot. This setup required careful calibration and monitoring throughout the printing process to ensure proper layer adhesion and structural integrity.
+            </p>
+            
+            <h3 class="mt-4">Post-Production</h3>
+            <p>
+                The post-production process involved manual manipulation of the printed elements with hand tools to fit the timber legs properly. This highlighted a limitation in the current workflow - the lack of standardized methods for attaching non-printed components to 3D printed structures. 
+            </p>
+            <p>
+                This insight has informed my approach to future projects, where I plan to incorporate attachment points for non-printed components directly into the parametric design, eliminating the need for extensive post-processing.
             </p>
             
             <div class="project-gallery mt-5">
                 <div class="gallery-item">
-                    <img src="../img/table-1.png" alt="3D Printed Table - View 1">
+                    <img src="../img/table-1.png" alt="3D Printed Table - Digital Rendering">
                 </div>
                 <div class="gallery-item">
-                    <img src="../img/table-1.png" alt="3D Printed Table - View 2">
+                    <img src="../img/table-2.jpg" alt="3D Printed Table - In Production">
                 </div>
                 <div class="gallery-item">
-                    <img src="../img/table-1.png" alt="3D Printed Table - View 3">
+                    <img src="../img/table-3.jpg" alt="3D Printed Table - Detail View">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/table-4.JPG" alt="3D Printed Table - Completed Piece">
                 </div>
             </div>
             
-            <h3 class="mt-4">Results & Impact</h3>
+            <h3 class="mt-4">Results & Insights</h3>
             <p>
-                The resulting table demonstrates the viability of using recycled materials for high-quality furniture production. By using parametric design and digital fabrication, I was able to create a piece that is both sustainable and visually appealing.
-            </p>
-            <p>
-                This project was exhibited at the annual design showcase and received positive feedback for its innovative approach to sustainable furniture design. It has also sparked conversations about how computational design can contribute to more environmentally responsible manufacturing practices.
+                The completed table successfully demonstrates the integration of parametric design with robotic fabrication techniques. The project provided valuable insights into the challenges of large-scale 3D printing with recycled materials, particularly in environments with variable conditions.
             </p>
             
             <h3 class="mt-4">Future Developments</h3>
             <p>
-                Building on this project, I am exploring ways to further optimize the printing process and expand the range of recycled materials that can be used. I am also developing an open-source version of the parametric design tools to make sustainable furniture design more accessible to other designers.
+                Future projects will incorporate methods to attach non-printed components as standard features within the parametric design, removing the requirement for post-processing. I also plan to develop more robust printing strategies for unregulated environments, potentially through adaptive print parameters that respond to environmental conditions in real-time.
             </p>
-            
-            <div class="text-center mt-5">
-                <a href="#" class="btn">View Design Files</a>
-                <a href="#" class="btn" style="margin-left: 10px;">View Fabrication Process</a>
-            </div>
         </div>
     </section>
 
@@ -91,6 +98,7 @@
     </footer>
 
     <script src="../js/components.js"></script>
+    <script src="../js/categories.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html> 
