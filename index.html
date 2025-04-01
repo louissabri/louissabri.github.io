@@ -3,83 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Sabri</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Louis Sabri - Computational Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.html">Louis Sabri</a>
-            <nav>
-                <a href="https://www.linkedin.com/in/louissabri/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/louissabri" target="_blank">Github</a>
-                <a href="email.html">Email</a>
-            </nav>
-        </header>
+    <header>
+        <!-- Header content will be added by components.js -->
+    </header>
 
-        <section class="intro">
-            <div>
-                <h1>Hi, I'm Louis</h1>
-                <p>I'm a computational design student with a passion for blending creativity and technology. I love working with robotic fabrication, parametric design, and finding smart solutions for the future of urban spaces.</p>
-                <p>I'm interested in exploring how robotic fabrication can transform construction, as well as the intersection of CoDe, AEC, and product design with Web 4.0.</p>
-            </div>
-            <div>
-                <img src="img\pfp.png" alt="Louis Sabri">
-            </div>
-        </section>
-        <section class="portfolio">
-            <h2>My Portfolio</h2>
-            <p>Explore a selection of my projects, showcasing my design skills and creative approach.</p>
-            <div class="portfolio-gallery">
-                <div class="portfolio-item">
-                    <img src="img/table-1.png" alt="Table Design Project">
-                    <div class="overlay">
-                        <a href="construction.html">
-                            <h3>3D Printed Table</h3>
-                            <p>A modern, parametric table design 3D printed with recycled plastics.</p>
-                        </a>
-                    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="typed-text" data-text="Louis Sabri"></span></h1>
+                    <p>I'm a computational design student with a passion for blending creativity and technology. I love working with robotic fabrication, parametric design, and finding smart solutions for the future of urban spaces.</p>
+                    <p>I'm interested in exploring how robotic fabrication can transform construction, as well as the intersection of CoDe, AEC, and product design with Web 4.0.</p>
+                    <a href="#projects" class="btn">View My Work</a>
                 </div>
-                <div class="portfolio-item">
-                    <img src="img/rammed-earth-1.png" alt="Rammed Earth Architecture">
-                    <div class="overlay">
-                        <a href="construction.html">
-                            <h3>Robotic Rammed Earth</h3>
-                            <p>3D printed formworks for a rammed earth structure.</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <a href="construction.html"><img src="img/website-1.png" alt="Website Design"></a>
-                    <div class="overlay">
-                        <a href="construction.html">
-                            <h3>Grasshopper Web App</h3>
-                            <p>A node.js web app to interact with grasshopper definitions via the browser.</p>
-                        </a>
-                    </div>
+                <div class="hero-image">
+                    <img src="img/pfp.png" alt="Louis Sabri">
                 </div>
             </div>
-        </section>
-        <section class="contact">
-            <h2>Get in Touch</h2>
-            <p>I'd love to hear from you! Feel free to reach out with any questions or inquiries about my work.</p>
-            <form action="https://formspree.io/f/mkgweqgl" method="POST">
-                <input type="text" id="name" name="name" placeholder="Name" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <textarea id="message" name="message" placeholder="Message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>My Projects</h2>
+                <p>Explore a selection of my work, showcasing my design skills and creative approach.</p>
+            </div>
             
-        </section>
-        <footer class="footer">
-            <div>
-                <p>&copy; 2024 Louis Sabri. All rights reserved.</p>
+            <div id="projects-filter" class="projects-filter animate-on-scroll">
+                <!-- Project filter buttons will be dynamically generated -->
             </div>
-        </footer>
-    </div>
+            
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll" data-category="parametric furniture">
+                    <div class="project-img">
+                        <img src="img/table-1.png" alt="3D Printed Table">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">3D Printed Table</h3>
+                        <p class="project-desc">A modern, parametric table design 3D printed with recycled plastics.</p>
+                        <a href="construction.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate-on-scroll" data-category="robotic sustainable">
+                    <div class="project-img">
+                        <img src="img/rammed-earth-1.png" alt="Robotic Rammed Earth">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Robotic Rammed Earth</h3>
+                        <p class="project-desc">3D printed formworks for a rammed earth structure.</p>
+                        <a href="construction.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card animate-on-scroll" data-category="web parametric">
+                    <div class="project-img">
+                        <img src="img/website-1.png" alt="Grasshopper Web App">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Grasshopper Web App</h3>
+                        <p class="project-desc">A node.js web app to interact with grasshopper definitions via the browser.</p>
+                        <a href="construction.html" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h2>About Me</h2>
+                    <p>I'm a computational design student with a background in user experience design and a passion for digital fabrication. I'm constantly exploring the intersection of technology and design to create innovative solutions.</p>
+                    <p>My approach combines creative thinking with technical expertise, allowing me to tackle complex design challenges and develop unique solutions that bridge the gap between the digital and physical worlds.</p>
+                    
+                    <div class="skill-bars">
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>Parametric Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>Robotic Fabrication</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>Web Development</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image animate-on-scroll">
+                    <!-- You can add an image here if desired -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Get in Touch</h2>
+                <p>I'd love to hear from you! Feel free to reach out with any questions or inquiries about my work.</p>
+            </div>
+            
+            <div class="email-container animate-on-scroll">
+                <button id="copy-email-btn" class="btn-small">
+                    louis.sabri@gmail.com
+                </button>
+                <span id="copy-tooltip" class="copy-tooltip">Copied to clipboard!</span>
+            </div>
+            
+            <div class="contact-form animate-on-scroll">
+                <h3 class="form-heading">Or Send Me a Message</h3>
+                <form action="https://formspree.io/f/mkgweqgl" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" class="form-control" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content will be added by components.js -->
+    </footer>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

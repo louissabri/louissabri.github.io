@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grasshopper Web App - Louis Sabri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-categories="web parametric">
+    <header>
+        <!-- Header content will be added by components.js -->
+    </header>
+
+    <div class="project-header">
+        <img class="project-header-img" src="../img/website-1.png" alt="Grasshopper Web App">
+        <div class="project-header-content">
+            <h1>Grasshopper Web App</h1>
+            <p>A node.js web application for interacting with Grasshopper definitions through a browser interface.</p>
+        </div>
+    </div>
+
+    <section class="project-details">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <p>
+                This project bridges the gap between parametric design tools and web applications by creating a platform that allows users to interact with Grasshopper definitions through a browser interface. The goal was to make parametric design more accessible to non-technical users and enable remote collaboration on design projects.
+            </p>
+            
+            <h3 class="mt-4">Technologies Used</h3>
+            <ul>
+                <li>Node.js and Express (Backend)</li>
+                <li>React.js and Three.js (Frontend)</li>
+                <li>Rhino Compute Server (Grasshopper Processing)</li>
+                <li>WebSockets for real-time updates</li>
+                <li>MongoDB for project data storage</li>
+            </ul>
+            
+            <h3 class="mt-4">Development Process</h3>
+            <p>
+                The development began with setting up a Rhino Compute server that could process Grasshopper definitions based on input parameters. I then created a Node.js API that would communicate with this compute server and handle user requests.
+            </p>
+            <p>
+                On the frontend, I built a React application with an intuitive interface that allows users to adjust parameters using sliders, input fields, and other interactive elements. The application visualizes the resulting 3D models in real-time using Three.js, providing instant feedback as parameters are changed.
+            </p>
+            
+            <h3 class="mt-4">Key Features</h3>
+            <p>
+                <strong>Real-time Visualization:</strong> Changes to parameters are instantly rendered in 3D, allowing for quick design iterations.
+            </p>
+            <p>
+                <strong>Collaborative Editing:</strong> Multiple users can work on the same definition simultaneously, with changes synchronized across all connected clients.
+            </p>
+            <p>
+                <strong>Project Management:</strong> Users can save, share, and manage multiple design projects through the platform.
+            </p>
+            <p>
+                <strong>Export Options:</strong> Designs can be exported in various formats (OBJ, STL, STEP) for further processing or fabrication.
+            </p>
+            
+            <div class="project-gallery mt-5">
+                <div class="gallery-item">
+                    <img src="../img/website-1.png" alt="Grasshopper Web App - Interface">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/website-1.png" alt="Grasshopper Web App - 3D Viewer">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/website-1.png" alt="Grasshopper Web App - Parameters">
+                </div>
+            </div>
+            
+            <h3 class="mt-4">Challenges & Solutions</h3>
+            <p>
+                One of the main challenges was optimizing the compute server to handle multiple requests efficiently. I implemented a queuing system and caching mechanism to improve performance and reduce redundant calculations.
+            </p>
+            <p>
+                Another challenge was creating an intuitive user interface that could represent the complex relationships in Grasshopper definitions. Through multiple iterations and user testing, I developed a component-based interface that visually represents dependencies and provides contextual help.
+            </p>
+            
+            <h3 class="mt-4">Results & Impact</h3>
+            <p>
+                The application has been successfully used by design teams to collaborate remotely on parametric design projects. It has significantly reduced the learning curve for non-technical team members to participate in the design process, leading to more diverse input and improved design outcomes.
+            </p>
+            <p>
+                The platform has also been adopted as an educational tool in several design schools, allowing students to explore parametric design concepts without the need for specialized software installations.
+            </p>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn">View Live Demo</a>
+                <a href="#" class="btn" style="margin-left: 10px;">View GitHub Repository</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content will be added by components.js -->
+    </footer>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 
