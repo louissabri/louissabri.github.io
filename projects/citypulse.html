@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Louis Sabri</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="CityPulse - Louis Sabri">
+    <meta name="description" content="AI-driven web application for exploring urban environments through natural language conversation. Integrates Google Maps, ChatGPT, and web-scraped data for rich urban insights.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://louissabri.github.io/projects/citypulse.html">
+    <meta property="og:title" content="CityPulse - Louis Sabri">
+    <meta property="og:description" content="AI-driven web application for exploring urban environments through natural language conversation. Integrates Google Maps, ChatGPT, and web-scraped data for rich urban insights.">
+    <meta property="og:image" content="https://louissabri.github.io/img/citypulse-1.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://louissabri.github.io/projects/citypulse.html">
+    <meta property="twitter:title" content="CityPulse - Louis Sabri">
+    <meta property="twitter:description" content="AI-driven web application for exploring urban environments through natural language conversation. Integrates Google Maps, ChatGPT, and web-scraped data for rich urban insights.">
+    <meta property="twitter:image" content="https://louissabri.github.io/img/citypulse-1.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-project-id="citypulse">
+    <header>
+        <!-- Header content will be added by components.js -->
+    </header>
+
+    <div class="project-header">
+        <img class="project-header-img" src="../img/citypulse-1.png" alt="CityPulse Interface">
+        <div class="project-header-content">
+            <h1>CityPulse</h1>
+            <p>AI-driven urban exploration through natural language conversation</p>
+        </div>
+    </div>
+
+    <section class="project-details">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <p>
+                CityPulse is an innovative web application that transforms how we explore and understand urban environments. By combining the power of ChatGPT's natural language processing with Google Maps data and web-scraped insights, it creates a uniquely intuitive way to discover and analyze city spaces.
+            </p>
+            <p>
+                Users can interact with CityPulse through natural language queries, making complex urban exploration as simple as having a conversation. Whether you're looking for specific amenities or conducting urban research, CityPulse provides rich, multi-source perspectives on city spaces.
+            </p>
+            
+            <h3 class="mt-4">Key Features</h3>
+            <ul>
+                <li>Natural language interface powered by ChatGPT API</li>
+                <li>Real-time integration with Google Maps Places API</li>
+                <li>Web scraping from Reddit and local news sources</li>
+                <li>Interactive map visualization</li>
+                <li>Conversational threading for refined searches</li>
+                <li>Programmatic API access for researchers</li>
+            </ul>
+            
+            <h3 class="mt-4">Technical Implementation</h3>
+            <p>
+                The backend is built with Flask, providing a robust foundation for managing the complex interactions between various APIs and data sources. The application processes natural language queries through ChatGPT, which parses them into structured search parameters for the Google Maps Places API and web scraping modules.
+            </p>
+            <p>
+                The frontend features an interactive Google Maps visualization, built with HTML, CSS, and JavaScript. This interface allows users to see their search results in context while maintaining the ability to refine their queries through natural conversation.
+            </p>
+            
+            <div class="project-gallery mt-5">
+                <div class="gallery-item">
+                    <img src="../img/citypulse-1.png" alt="CityPulse - Main Interface">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/citypulse-2.png" alt="CityPulse - Search Results">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/citypulse-3.png" alt="CityPulse - Data Visualization">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/citypulse-4.png" alt="CityPulse - Mobile View">
+                </div>
+            </div>
+            
+            <h3 class="mt-4">Use Cases</h3>
+            <p>
+                CityPulse serves both casual users and urban researchers:
+            </p>
+            <ul>
+                <li>Everyday users can discover new places with natural queries like "best late-night food in Newtown"</li>
+                <li>Researchers can analyze public sentiment through queries like "compare public sentiment on cafes in Surry Hills"</li>
+                <li>Urban planners can gather multi-source insights about neighborhood amenities and public spaces</li>
+                <li>Developers can access the API directly for integration with other urban analysis tools</li>
+            </ul>
+            
+            <h3 class="mt-4">Technical Stack</h3>
+            <ul>
+                <li>Backend: Python Flask</li>
+                <li>APIs: ChatGPT, Google Maps Places</li>
+                <li>Frontend: HTML5, CSS3, JavaScript</li>
+                <li>Data Sources: Reddit API, Local News Scrapers</li>
+                <li>Visualization: Google Maps JavaScript API</li>
+            </ul>
+            
+            <h3 class="mt-4">Future Developments</h3>
+            <p>
+                Future updates will focus on expanding data sources, improving sentiment analysis, and adding more sophisticated visualization options. We're also exploring the integration of real-time transit data and environmental sensors to provide even richer urban insights.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content will be added by components.js -->
+    </footer>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/categories.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html> 

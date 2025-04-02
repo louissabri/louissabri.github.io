@@ -34,6 +34,14 @@ const CATEGORIES = {
     'web': { 
         displayName: 'Web Development', 
         description: 'Web development and interactive online projects'
+    },
+    'ai': {
+        displayName: 'Artificial Intelligence',
+        description: 'Projects leveraging AI and machine learning technologies'
+    },
+    'data': {
+        displayName: 'Data Science',
+        description: 'Projects involving data analysis and visualization'
     }
 };
 
@@ -41,7 +49,8 @@ const CATEGORIES = {
 const PROJECT_CATEGORIES = {
     '3d-printed-table': ['parametric', 'furniture', 'robotic', 'fabrication'],
     'robotic-rammed-earth': ['robotic', 'sustainable', 'fabrication'],
-    'grasshopper-web-app': ['web', 'parametric']
+    'grasshopper-web-app': ['web', 'parametric'],
+    'citypulse': ['web', 'ai', 'data']
 };
 
 // Project information for related projects section
@@ -63,6 +72,12 @@ const PROJECT_INFO = {
         description: 'A node.js web app to interact with grasshopper definitions via the browser.',
         image: '../img/website-1.png',
         url: '../construction.html'
+    },
+    'citypulse': {
+        title: 'CityPulse',
+        description: 'AI-driven urban exploration through natural language conversation.',
+        image: '../img/citypulse-1.png',
+        url: '../projects/citypulse.html'
     }
 };
 
