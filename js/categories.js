@@ -136,27 +136,35 @@ function renderCategoryHashtags(projectId) {
 // Function to render related projects section
 function renderRelatedProjects(currentProjectId) {
     const categories = PROJECT_CATEGORIES[currentProjectId];
+    
+    // Skip if no categories defined for this project
     if (!categories || categories.length === 0) return;
     
-    // Find related projects based on shared categories
-    const relatedProjectIds = new Set();
+    // Find related projects (projects that share at least one category)
+    let relatedProjectIds = [];
     
-    // For each project in PROJECT_CATEGORIES
-    for (const projectId in PROJECT_CATEGORIES) {
-        // Skip current project
-        if (projectId === currentProjectId) continue;
-        
-        // Check if project shares any categories with current project
+    // Get all project IDs except current one
+    const allProjectIds = Object.keys(PROJECT_CATEGORIES).filter(id => id !== currentProjectId);
+    
+    // Find projects that share categories with current project
+    allProjectIds.forEach(projectId => {
         const projectCategories = PROJECT_CATEGORIES[projectId];
-        const hasCommonCategory = projectCategories.some(category => categories.includes(category));
+        if (!projectCategories) return;
         
-        if (hasCommonCategory) {
-            relatedProjectIds.add(projectId);
+        // Check if any categories match
+        const hasSharedCategory = projectCategories.some(category => 
+            categories.includes(category));
+        
+        if (hasSharedCategory) {
+            relatedProjectIds.push(projectId);
         }
-    }
+    });
     
-    // If no related projects found, return
-    if (relatedProjectIds.size === 0) return;
+    // If no related projects found, exit
+    if (relatedProjectIds.length === 0) return;
+    
+    // Limit to 3 related projects
+    relatedProjectIds = relatedProjectIds.slice(0, 3);
     
     // Create related projects section
     const relatedSection = document.createElement('section');
@@ -180,6 +188,8 @@ function renderRelatedProjects(currentProjectId) {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card animate-on-scroll';
         projectCard.setAttribute('data-project-id', projectId);
+        projectCard.style.display = 'flex';
+        projectCard.style.flexDirection = 'column';
         
         const imageContainer = document.createElement('div');
         imageContainer.className = 'project-img';
@@ -191,6 +201,7 @@ function renderRelatedProjects(currentProjectId) {
         
         const contentContainer = document.createElement('div');
         contentContainer.className = 'project-content';
+        contentContainer.style.flex = '1';
         
         const title = document.createElement('h3');
         title.className = 'project-title';

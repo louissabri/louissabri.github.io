@@ -500,6 +500,8 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -511,6 +513,8 @@ nav {
   position: relative;
   height: 350px;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -1190,6 +1194,26 @@ footer::before {
     padding: 70px 0;
   }
   
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .project-card {
+    height: 330px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .project-img {
+    height: 160px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -1233,6 +1257,24 @@ footer::before {
   
   .social-icons {
     justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  
+  .project-card {
+    width: 100%;
+  }
+  
+  .related-projects .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
 
@@ -1372,6 +1414,7 @@ footer::before {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -1390,6 +1433,12 @@ footer::before {
     
     .related-projects h2 {
         margin-bottom: 1.5rem;
+    }
+    
+    .related-projects .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 15px;
     }
 }
 
