@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguin Model</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #ffffff; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let scene, camera, renderer, model, controls;
+
+        function init() {
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff); // White background
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            // Set position based on desired view from console log
+            camera.position.set(0.08595388561925021, -25.8417944155343, 2.3340583676849804);
+            // camera.lookAt(0, 1, 0); // Target is handled by OrbitControls
+            console.log('Camera Initialized:', camera);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Soft white light
+            scene.add(ambientLight);
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(5, 10, 7.5);
+            scene.add(directionalLight);
+
+            // Controls (Enable for interaction)
+            controls = new OrbitControls(camera, renderer.domElement);
+            // Set target based on desired view from console log (or keep default if suitable)
+            controls.target.set(0, 1, 0); 
+            controls.update(); // IMPORTANT: Update controls after setting target
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = true; // Allow panning
+            // controls.minDistance = 1; // Adjust as needed
+            // controls.maxDistance = 50; // Adjust as needed
+            // controls.maxPolarAngle = Math.PI;
+            console.log('OrbitControls Initialized:', controls);
+
+            // Expose variables for debugging in console
+            window.camera = camera;
+            window.controls = controls;
+
+            // Scene Helpers (Commented out)
+            // const axesHelper = new THREE.AxesHelper( 5 ); 
+            // scene.add( axesHelper );
+            // const gridHelper = new THREE.GridHelper( 10, 10 ); 
+            // scene.add( gridHelper );
+            // console.log('Scene Helpers Added');
+
+            // Load Model directly using OBJLoader
+            const objLoader = new OBJLoader();
+            // objLoader.setPath('img/'); // Path is part of the filename argument
+            objLoader.load('img/penguin.obj', function(object) {
+                model = object;
+                
+                // Scale model
+                const box = new THREE.Box3().setFromObject(model);
+                const size = box.getSize(new THREE.Vector3());
+                console.log(`Model Bounding Box Size: x=${size.x}, y=${size.y}, z=${size.z}`);
+                const maxDim = Math.max(size.x, size.y, size.z);
+                console.log('Calculated maxDim:', maxDim);
+                let scale = maxDim > 0 ? (3 / maxDim) : 1; 
+                scale *= 5; // Scale down by 10 (was 50)
+                console.log('Calculated scale factor:', scale);
+                model.scale.set(scale, scale, scale);
+                
+                // Force position to origin, then lift slightly
+                model.position.set(0, 0, 0);
+                model.position.y = 1; 
+                
+                // Set initial rotation
+                model.rotation.x = 0; // Set X rotation back to 0
+                
+                console.log(`Model Final Scale: x=${model.scale.x}, y=${model.scale.y}, z=${model.scale.z}`);
+                console.log(`Model Final Position: x=${model.position.x}, y=${model.position.y}, z=${model.position.z}`);
+
+                // Apply manual light gray material
+                model.traverse(function (child) {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = new THREE.MeshStandardMaterial({
+                            color: 0xcccccc, // Base color if no vertex colors
+                            vertexColors: true, // Enable vertex colors
+                            side: THREE.DoubleSide 
+                        });
+                    }
+                });
+
+                scene.add(model);
+                console.log('Model loaded successfully with manual material');
+
+                // Start animation
+                animate(); 
+
+            }, 
+            // onProgress callback for OBJ
+            function ( xhr ) {
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% OBJ loaded' );
+            },
+            // onError callback for OBJ
+            function ( error ) {
+                console.error( 'An error happened loading the OBJ model:', error );
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', onWindowResize, false);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (!model) return; // Don't try to rotate if model hasn't loaded
+
+            // Rotate model clockwise slowly around Z-axis
+            model.rotation.z -= 0.005; // New Z rotation
+            
+            if (controls) controls.update(); // Update controls if enabled
+
+            renderer.render(scene, camera);
+        }
+
+        init();
+
+    </script>
+</body>
+</html> 
