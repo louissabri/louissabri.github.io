@@ -243,8 +243,12 @@ function typeText(element, text, speed = 100) {
 // Initialize typed text if the element exists
 const typedElement = document.querySelector('.typed-text');
 if (typedElement) {
-    const text = typedElement.getAttribute('data-text');
-    typeText(typedElement, text, 100);
+    // Fallback to the element's existing text if the data attribute is missing
+    const text = typedElement.getAttribute('data-text') || typedElement.textContent || '';
+
+    if (text) {
+        typeText(typedElement, text, 100);
+    }
 }
 
 // Form validation
