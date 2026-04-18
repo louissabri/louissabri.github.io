@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing for Demoulding - Louis Sabri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-categories="parametric robotic sustainable">
+    <header>
+        <!-- Header content will be added by components.js -->
+    </header>
+
+    <div class="project-header">
+        <img class="project-header-img" src="../img/demoulding-header.jpg" alt="Designing for Demoulding - PETG mould with breakable zipper seam">
+        <div class="project-header-content">
+            <h1>Designing for Demoulding</h1>
+            <p>Parametric moulds that know when to let go — embedding demoulding logic directly into robotic toolpaths for large-format 3D printed concrete formwork.</p>
+        </div>
+    </div>
+
+    <section class="project-details">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <p>
+                Complex free-form geometries are increasingly viable in architecture, yet the moulds required to cast them remain costly, wasteful, and notoriously difficult to remove without damaging the finished element. This graduation research project tackled that bottleneck head-on by reframing demoulding not as a destructive afterthought, but as a computational design parameter embedded directly into the fabrication workflow.
+            </p>
+            <p>
+                Working with UNSW's Design Futures Lab (DFL) KUKA KR70 industrial robot and MDPE10 pellet extruder, a parametric Grasshopper workflow was developed that embeds weakened "zipper seams" into 3D-printed PETG moulds at the slicing stage. By exploiting the extrusion system's constraints — specifically its inability to dynamically modulate extrusion rates without pausing — robot movement speed became the primary tool for creating controlled zones of under-extrusion. Combined with strategic extruder on/off commands that produce layered perforations, the result is a continuous seam strong enough to withstand the hydrostatic pressure of wet concrete during casting, yet fragile enough to peel open in under thirty seconds once the concrete has cured.
+            </p>
+            <p>
+                Full-scale casting trials validated the approach: moulds were stripped with nothing more than side cutters, and the concrete emerged completely intact with zero surface damage. The project contributes a replicable, scalable methodology that transforms demoulding into a designable, computationally controlled property of LFAM moulds — advancing sustainable, circular workflows for architectural fabrication.
+            </p>
+
+            <h3 class="mt-4">Technologies Used</h3>
+            <ul>
+                <li>KUKA KR70 industrial robotic arm with MDPE10 large-format pellet extruder</li>
+                <li>Rhino 8 / Grasshopper for parametric design and custom toolpath generation</li>
+                <li>KUKA Robot Language (KRL) for machine code output</li>
+                <li>PETG thermoplastic pellets for mould fabrication (closed-loop recyclable)</li>
+                <li>Ultimaker 3 with 0.8mm nozzle for small-scale prototyping and G-Code testing</li>
+                <li>OBS (Open Broadcaster Software) with webcam capture for print documentation</li>
+                <li>Custom Python tool for time-stamped print capture and timelapse generation</li>
+            </ul>
+
+            <h3 class="mt-4">Research &amp; Development</h3>
+            <p>
+                The project adopted a design-through-research methodology grounded in iterative prototyping, material experimentation, and computational design. The first phase involved establishing the technical and material constraints of the DFL's fabrication environment. PETG was selected over PLA (which degrades in concrete's alkaline environment), ABS (toxic fumes beyond the lab's ventilation capacity), and TPU (unavailable in pelletised form). A thirty-second-per-layer cooling target was calibrated to ensure dimensional stability, and the extrusion rate was derived from Lamont's (2024) research establishing the relationship between LIN speed and optimal deposition.
+            </p>
+            <p>
+                Several demoulding concepts were explored and discarded in early iterations: snap-fit joinery (limited to simple geometries), hinged moulds (too weak for hydrostatic pressure), layer-oriented delamination (infeasible without support material), and release agent channels (beyond pellet extrusion resolution). The perforated tear strip concept emerged as the most versatile approach, leading to two focused lines of experimentation.
+            </p>
+
+            <h3 class="mt-4">Technique Development</h3>
+            <p>
+                The first technique — speed-ramped under-extrusion — held the extrusion rate constant while accelerating the robot along a defined seam location. After testing multipliers from 1.5× to 7×, a 7× baseline speed (approximately 0.2–0.35 m/s) produced seams that were 50–60% thinner than adjacent wall sections. These seams were predictable, repeatable, and mechanically reliable, though accessibility remained an issue once the mould was filled with concrete.
+            </p>
+            <p>
+                The second technique arose from a productive failure. Attempts to embed perforations through extruder on/off commands caused molten PETG to sag into the gaps, sealing them shut. However, this failure revealed two useful behaviours: with the extruder on during a fast move, thin weakened strands were produced; with it off, hair-thin non-structural threads formed. By alternating between these states at high speeds, a layered "floating" seam of discontinuous perforations emerged — a zipper-like weakness that matched the 50–60% thickness reduction of speed-ramped seams while providing much better accessibility for cutting tools.
+            </p>
+
+            <h3 class="mt-4">Fabrication &amp; Validation</h3>
+            <p>
+                The final parametric workflow combined both techniques into a single Grasshopper script that translates input geometries into structured KRL code, embedding seam placement, speed multipliers, and start/stop sequences directly into the toolpath. Full-scale PETG moulds were produced with seams covered in PVC tape to prevent slurry ingress during casting.
+            </p>
+            <p>
+                Once the concrete cured, seams were accessed with side cutters and the mould peeled away in under thirty seconds — no chisels, saws, or rotary tools required. The concrete emerged intact with zero surface damage. The taped seams did introduce minor surface finish variations where tape contacted the concrete, presenting an area for further research, but the primary aim of rapid, non-destructive demoulding was conclusively achieved.
+            </p>
+
+            <div class="project-gallery mt-5">
+                <div class="gallery-item">
+                    <img src="../img/demoulding-petg-seam.jpg" alt="Designing for Demoulding - Close-up of PETG mould showing the breakable zipper seam">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/demoulding-kuka-printing.jpg" alt="Designing for Demoulding - KUKA KR70 robot with MDPE10 extruder printing a mould">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/demoulding-floating-seam.jpg" alt="Designing for Demoulding - Floating seams showing extruder on and off perforations">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/demoulding-cast-result.jpg" alt="Designing for Demoulding - Cast concrete structure after successful demoulding">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/demoulding-pvc-tape.jpg" alt="Designing for Demoulding - Seam covered with PVC tape before concrete pour">
+                </div>
+                <div class="gallery-item">
+                    <img src="../img/demoulding-surface-finish.jpg" alt="Designing for Demoulding - Surface finish detail of cast concrete with half mould removed">
+                </div>
+            </div>
+
+            <h3 class="mt-4">Outcomes &amp; Impact</h3>
+            <p>
+                The research demonstrates that demoulding can be parametrically encoded into LFAM workflows without compromising geometric fidelity or structural stability. The key innovation lies in reframing machine constraints as design opportunities — exploiting the pellet extruder's natural tendency to string and slump, rather than fighting against it. The validated workflow supports a circular fabrication model where PETG moulds can be rapidly removed, shredded, and re-extruded into new formwork with minimal material loss.
+            </p>
+            <p>
+                While tailored to the DFL's robotic setup, the underlying principles are broadly transferable to any pellet-based LFAM system, offering a replicable strategy for embedding demoulding performance into printed formworks at scale. The project was completed as part of the Bachelor of Design in Computational Design at UNSW, under the CODE3201 Graduation Project.
+            </p>
+
+            <h3 class="mt-4">Future Directions</h3>
+            <p>
+                Further research directions include systematic studies of surface finish quality at seam interfaces, investigation of alternative thermoplastics (particularly TPU for intrinsic flexibility-based demouldability), scaling the workflow to full architectural elements with structural analysis integration, and exploring systems with real-time dynamic extrusion control for more precise and diverse demoulding features.
+            </p>
+
+            <div class="text-center mt-5">
+                <a href="#" class="btn">View Thesis Paper</a>
+                <a href="#" class="btn" style="margin-left: 10px;">View Project Booklet</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content will be added by components.js -->
+    </footer>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
