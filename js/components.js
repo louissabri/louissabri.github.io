@@ -82,7 +82,7 @@ class Footer extends Component {
                 <div class="footer-content">
                     <div class="footer-section">
                         <h3>Louis Sabri</h3>
-                        <p>Computational design student blending creativity and technology.</p>
+                        <p>Computational designer blending creativity and technology.</p>
                         <div class="social-icons">
                             <a href="https://www.linkedin.com/in/louissabri/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                             <a href="https://github.com/louissabri" target="_blank"><i class="fa-brands fa-github"></i></a>
@@ -101,7 +101,6 @@ class Footer extends Component {
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; ${currentYear} Louis Sabri. All rights reserved.</p>
-                    <p>Built with <i class="fa-solid fa-code"></i> and <i class="fa-solid fa-heart"></i></p>
                 </div>
             </div>
         `;
